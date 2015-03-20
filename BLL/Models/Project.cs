@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using DAL;
+
 
 namespace BLL.Models
 {
