@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58539d0295b34b509116083953015e25" Name="Diagram1" ZoomLevel="112" >
+        <EntityTypeShape EntityType="DashboardModel.Project" Width="1.875" PointX="6" PointY="2.875" />
+        <EntityTypeShape EntityType="DashboardModel.Consultant" Width="1.75" PointX="11" PointY="2.625" />
+        <EntityTypeShape EntityType="DashboardModel.Consultant_Project" Width="1.625" PointX="8.625" PointY="2.375" />
+        <AssociationConnector Association="DashboardModel.Consutant_Projects" />
+        <AssociationConnector Association="DashboardModel.Consultant_Projects" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
