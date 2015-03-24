@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BBB7846-B0AE-4A95-93B8-7177001E5E64}</ProjectGuid>
+    <ProjectGuid>05c6c516-c7df-4033-be93-107d8623a7f7</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DashTest</RootNamespace>
-    <AssemblyName>DashTest</AssemblyName>
+    <RootNamespace>PlacementDashboardTest</RootNamespace>
+    <AssemblyName>PlacementDashboardTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
