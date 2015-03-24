@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlacementDashboard", "PlacementDashboard\PlacementDashboard.csproj", "{E39EDDFA-E715-4AAA-AB13-B127A5698683}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlacementDashboard-DAL", "PlacementDashboard-DAL", "{F2C02062-87ED-4382-9C08-65CE41784AA2}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AE219E87-B704-4235-B852-63058EE0B996}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -17,11 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AE219E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{739F65ED-3806-41CD-A372-61A9AAC30D85}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dashboard-BLL", "Dashboard-BLL", "{B609C83D-8229-4DFF-9BF7-41427C0C2286}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{654AE11B-B2EE-4ADE-A1F9-838BE0892EE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DashboardTest", "DashboardTest\DashboardTest.csproj", "{035292E0-731E-4C24-9880-621AE29DFF42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlacementDashboardTest", "PlacementDashboardTest\PlacementDashboardTest.csproj", "{79AA53EA-CB41-488D-B047-47D9447F8BF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,16 +37,12 @@ Global
 		{654AE11B-B2EE-4ADE-A1F9-838BE0892EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{654AE11B-B2EE-4ADE-A1F9-838BE0892EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{654AE11B-B2EE-4ADE-A1F9-838BE0892EE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{035292E0-731E-4C24-9880-621AE29DFF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{035292E0-731E-4C24-9880-621AE29DFF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{035292E0-731E-4C24-9880-621AE29DFF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{035292E0-731E-4C24-9880-621AE29DFF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79AA53EA-CB41-488D-B047-47D9447F8BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79AA53EA-CB41-488D-B047-47D9447F8BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79AA53EA-CB41-488D-B047-47D9447F8BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79AA53EA-CB41-488D-B047-47D9447F8BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{739F65ED-3806-41CD-A372-61A9AAC30D85} = {F2C02062-87ED-4382-9C08-65CE41784AA2}
-		{654AE11B-B2EE-4ADE-A1F9-838BE0892EE8} = {B609C83D-8229-4DFF-9BF7-41427C0C2286}
 	EndGlobalSection
 EndGlobal
