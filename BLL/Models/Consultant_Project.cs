@@ -16,7 +16,7 @@ namespace BLL.Models
         private DateTime _ProjStartDate;
         private DateTime _ProjEndDate;
         private bool _BillableStatus;
-        private Nullable<int> _BillableDaysMonth;
+        private TimeSpan _BillableDaysMonth;
 
         private Nullable<int> _BillableDaysYTD;
         private int _ProjectId;
@@ -42,11 +42,28 @@ namespace BLL.Models
             set { _BillableStatus = value; }
         }
 
-        public Nullable<int> BillableDaysMonth
+        public TimeSpan ConvertIntToTSDays(int? numIn)
         {
-            get { return _BillableDaysMonth; }
-            set { _BillableDaysMonth = value; }
+            //method to convert the int back to a timespan 
+            TimeSpan result = new TimeSpan((int)numIn, 0, 0, 0);
+            return result;
         }
+
+        public TimeSpan BillableDaysMonth
+        {
+            set { _BillableDaysMonth = (_ProjEndDate.Subtract(_ProjStartDate)); }
+            get { return _BillableDaysMonth; }
+        }
+        public int? BillDaysValue()
+        {
+            //method to convert Timespan BillableDaysMonth to an int called 'NrOfDaysInt'
+            TimeSpan BillableDays_Month = BillableDaysMonth;
+            double NrofDays = BillableDaysMonth.TotalDays;
+            int? NrofDaysInt = Convert.ToInt32(NrofDays);
+            return NrofDaysInt;
+
+        }
+
         public Nullable<int> BillableDaysYTD
         {
             get { return _BillableDaysYTD; }
@@ -92,8 +109,9 @@ namespace BLL.Models
 
 
                         this._BillableStatus = DBConsultantProj.BillableStatus;
+                        //this instance of the timespan 'billable days month' = Billable days month int in the database converted back to a timespan
+                        this._BillableDaysMonth = ConvertIntToTSDays(DBConsultantProj.BillableDaysMonth);
 
-                        this._BillableDaysMonth = DBConsultantProj.BillableDaysMonth;
                         this._BillableDaysYTD = DBConsultantProj.BillableDaysYTD;
 
                         this._ProjectId = DBConsultantProj.ProjectId;
@@ -115,7 +133,7 @@ namespace BLL.Models
         /// <param name="billableDaysMonthIN"></param>
         /// <param name="billableDaysYtdIN"></param>
         public Consultant_Project(DateTime ProjectStartDateIN, DateTime ProjectEndDateIN, bool BillableStatusIN,
-            int? billableDaysMonthIN, int? billableDaysYtdIN)
+             int? billableDaysYtdIN)
         {
 
             try
@@ -128,25 +146,26 @@ namespace BLL.Models
                     newDBConsultantProj.ProjEndDate = ProjectEndDateIN;
                     newDBConsultantProj.BillableStatus = BillableStatusIN;
 
-                    if (BillableDaysMonth == null)
-                    {
-                        //if the billable days month is null then set the new value for consultant project to null
-                        newDBConsultantProj.BillableDaysMonth = default(int);
-                    }
-                    else
-                    {
-                        //otherwise set the billable days month to the new value entered for billable days month
-                        newDBConsultantProj.BillableDaysMonth = billableDaysMonthIN;
-                    }
+                    //if (BillableDaysMonth == null)
+                    //{
+                    //    //if the billable days month is null then set the new value for consultant project to null
+                    //    newDBConsultantProj.BillableDaysMonth = default(int)  ;
 
-                    if (BillableDaysYTD == null)
-                    {
-                        newDBConsultantProj.BillableDaysYTD = default(int);
-                    }
-                    else
-                    {
-                        newDBConsultantProj.BillableDaysYTD = billableDaysYtdIN;
-                    }
+                    //}
+                    //else
+                    //{
+                    //    //otherwise set the billable days month to the new value entered for billable days month
+                    //    newDBConsultantProj.BillableDaysMonth = billableDaysMonthIN;
+                    //}
+
+                    //if (BillableDaysYTD == null)
+                    //{
+                    //    newDBConsultantProj.BillableDaysYTD = default(int);
+                    //}
+                    //else
+                    //{
+                    //    newDBConsultantProj.BillableDaysYTD = billableDaysYtdIN;
+                    //}
 
 
                     DB.Consultant_Project.Add(newDBConsultantProj);
@@ -155,7 +174,7 @@ namespace BLL.Models
                     this._ProjStartDate = newDBConsultantProj.ProjStartDate;
                     this._ProjEndDate = newDBConsultantProj.ProjEndDate;
                     this._BillableStatus = newDBConsultantProj.BillableStatus;
-                    this._BillableDaysMonth = newDBConsultantProj.BillableDaysMonth;
+
                     this._BillableDaysYTD = newDBConsultantProj.BillableDaysYTD;
                     this._ProjectId = newDBConsultantProj.ProjectId;
                     this._ConsultantId = newDBConsultantProj.ConsultantId;
@@ -182,7 +201,7 @@ namespace BLL.Models
         /// <param name="updateBillableDaysYTD"></param>
         /// <returns></returns>
         public Boolean editConsultantProject(DateTime updateProjStartDate, DateTime updateProjEndDate, bool updateBillableStatus,
-            int updateBillableDaysMonth, int updateBillableDaysYTD)
+          int updateBillableDaysYTD)
         {
             Boolean editStatus = false;
 
@@ -197,7 +216,8 @@ namespace BLL.Models
                         DBConsultantProj.ProjStartDate = updateProjStartDate;
                         DBConsultantProj.ProjEndDate = updateProjEndDate;
                         DBConsultantProj.BillableStatus = updateBillableStatus;
-                        DBConsultantProj.BillableDaysMonth = updateBillableDaysMonth;
+                        this._BillableDaysMonth = ConvertIntToTSDays(DBConsultantProj.BillableDaysMonth);
+
                         DBConsultantProj.BillableDaysYTD = updateBillableDaysYTD;
 
 
@@ -243,6 +263,17 @@ namespace BLL.Models
 
         }
         #endregion
+        #region calculation methods
+        /// <summary>
+        /// calculation
+        /// </summary>
+        public void calcBillDaysYTD()
+        {
+            int? BillDaysYTD = (BillDaysValue()/365)*100;
+            Console.WriteLine(BillableDaysYTD);
+        }
+        #endregion
+
 
     }
 }
