@@ -53,5 +53,18 @@ namespace PlacementDashboardTest
             // editProject.deleteProject();
         }
 
+        [TestMethod]
+        public void testCalcBillDays()
+    {
+
+            //Arrange
+        BLL.Models.Consultant_Project calc = new BLL.Models.Consultant_Project(1);
+
+            //Act
+        var actual = calc.calcBillDaysYTD(20);
+            
+            //Assert
+        Assert.AreEqual(20, actual);
+    }
     }
 }

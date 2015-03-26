@@ -60,6 +60,7 @@ namespace BLL.Models
             TimeSpan BillableDays_Month = BillableDaysMonth;
             double NrofDays = BillableDaysMonth.TotalDays;
             int? NrofDaysInt = Convert.ToInt32(NrofDays);
+            //a method must always return the same type i.e. a nullable int is declared in the 
             return NrofDaysInt;
 
         }
@@ -267,10 +268,12 @@ namespace BLL.Models
         /// <summary>
         /// calculation
         /// </summary>
-        public void calcBillDaysYTD()
+        public int? calcBillDaysYTD(int? billDaysValue)
         {
-            int? BillDaysYTD = (BillDaysValue()/365)*100;
-            Console.WriteLine(BillableDaysYTD);
+            return (billDaysValue / 260) * 100;
+
+            //260 days for working week
+            //Console.WriteLine(BillableDaysYTD);
         }
         #endregion
 
