@@ -58,12 +58,15 @@ namespace PlacementDashboardTest
     {
 
             //Arrange
+            //sets up the intstance of the test class from the consultant project class
         BLL.Models.Consultant_Project calc = new BLL.Models.Consultant_Project(1);
 
             //Act
+            //performs the action to be tested
         var actual = calc.calcBillDaysYTD(20);
             
             //Assert
+            //tests if the action is performing correctly
         Assert.AreEqual(20, actual);
     }
     }

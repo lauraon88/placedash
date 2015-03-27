@@ -16,12 +16,12 @@ namespace DAL
     {
         public Project()
         {
-            this.Consultant_Projects = new HashSet<Consultant_Project>();
+            this.Consultant_Project = new HashSet<Consultant_Project>();
         }
     
         public int Id { get; set; }
         public string ProjectName { get; set; }
     
-        public virtual ICollection<Consultant_Project> Consultant_Projects { get; set; }
+        public virtual ICollection<Consultant_Project> Consultant_Project { get; set; }
     }
 }

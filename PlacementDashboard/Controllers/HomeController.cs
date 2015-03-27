@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +14,10 @@ namespace PlacementDashboard.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Consultant()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var consultant = new Consultant(6);
+            return View(consultant);
         }
     }
 }

@@ -8,12 +8,11 @@ namespace BLL.Models.Mapping
         public Consultant_ProjectMap()
         {
             // Primary Key
-            this.HasKey(t => t.Id);
+            this.HasKey(t => t.ConsultantId);
 
             // Properties
             // Table & Column Mappings
-            this.ToTable("Consultant_Project");
-            this.Property(t => t.Id).HasColumnName("Id");
+            this.ToTable("Consultant_Project");           
             this.Property(t => t.ProjStartDate).HasColumnName("ProjStartDate");
             this.Property(t => t.ProjEndDate).HasColumnName("ProjEndDate");
             this.Property(t => t.BillableStatus).HasColumnName("BillableStatus");

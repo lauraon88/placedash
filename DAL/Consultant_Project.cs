@@ -14,7 +14,6 @@ namespace DAL
     
     public partial class Consultant_Project
     {
-        public int Id { get; set; }
         public System.DateTime ProjStartDate { get; set; }
         public System.DateTime ProjEndDate { get; set; }
         public bool BillableStatus { get; set; }
@@ -23,7 +22,7 @@ namespace DAL
         public int ProjectId { get; set; }
         public int ConsultantId { get; set; }
     
-        public virtual Project Project { get; set; }
         public virtual Consultant Consultant { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

@@ -77,30 +77,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <EntityDeploy Include="DashboardModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DashboardModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
     <None Include="DashboardModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DashboardModel.Context.cs</LastGenOutput>
       <DependentUpon>DashboardModel.edmx</DependentUpon>
+      <LastGenOutput>DashboardModel.Context.cs</LastGenOutput>
     </None>
     <None Include="DashboardModel.edmx.diagram">
       <DependentUpon>DashboardModel.edmx</DependentUpon>
     </None>
     <None Include="DashboardModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DashboardModel.cs</LastGenOutput>
       <DependentUpon>DashboardModel.edmx</DependentUpon>
+      <LastGenOutput>DashboardModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DashboardModel.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

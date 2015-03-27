@@ -16,7 +16,7 @@ namespace DAL
     {
         public Consultant()
         {
-            this.Consultant_Projects = new HashSet<Consultant_Project>();
+            this.Consultant_Project = new HashSet<Consultant_Project>();
         }
     
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace DAL
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
     
-        public virtual ICollection<Consultant_Project> Consultant_Projects { get; set; }
+        public virtual ICollection<Consultant_Project> Consultant_Project { get; set; }
     }
 }

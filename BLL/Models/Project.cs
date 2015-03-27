@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using DAL;
 using System.Data.Entity;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
+
 
 
 namespace BLL.Models
@@ -13,9 +15,12 @@ namespace BLL.Models
 
         #region properties
         //creates a collapsable section for the properties of the class
+        
 
         private int _id; //creates a private int called _id
         private string _projectName;
+
+        [Key]
         public int Id //method to get the private value of the public int
         {
             get { return _id; } //dont need a set mutator here as the id is auto generated 

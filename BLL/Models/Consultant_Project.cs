@@ -11,8 +11,8 @@ namespace BLL.Models
     {
 
         #region properties
-
-        private int _id;
+        
+        
         private DateTime _ProjStartDate;
         private DateTime _ProjEndDate;
         private bool _BillableStatus;
@@ -22,10 +22,7 @@ namespace BLL.Models
         private int _ProjectId;
         private int _ConsultantId;
 
-        public int Id
-        {
-            get { return _id; }
-        }
+        
         public System.DateTime ProjStartDate
         {
             get { return _ProjStartDate; }//get must include a return statement
@@ -94,17 +91,17 @@ namespace BLL.Models
         /// This method allows user to ***READ***
         /// </summary>
         /// <param name="idIN"></param>
-        public Consultant_Project(int idIN)
+        public Consultant_Project(int consultantId)
         {
             try
             {
                 using (DAL.DashboardModelContainer DB = new DashboardModelContainer())
                 {
-                    DAL.Consultant_Project DBConsultantProj = (from cp in DB.Consultant_Project where cp.Id == idIN select cp).FirstOrDefault();
+                    DAL.Consultant_Project DBConsultantProj = (from cp in DB.Consultant_Project where cp.ConsultantId == consultantId select cp).FirstOrDefault();
 
-                    if (DBConsultantProj.Id != 0)
+                    if (DBConsultantProj.ConsultantId != 0)
                     {
-                        this._id = DBConsultantProj.Id;
+                       // this._id = DBConsultantProj.Id;
                         this._ProjStartDate = DBConsultantProj.ProjStartDate;
                         this._ProjEndDate = DBConsultantProj.ProjEndDate;
 
@@ -210,9 +207,9 @@ namespace BLL.Models
             {
                 using (DAL.DashboardModelContainer DB = new DashboardModelContainer())
                 {
-                    DAL.Consultant_Project DBConsultantProj = (from b in DB.Consultant_Project where b.Id == _id select b).FirstOrDefault();
+                    DAL.Consultant_Project DBConsultantProj = (from b in DB.Consultant_Project where b.ConsultantId == _ConsultantId select b).FirstOrDefault();
 
-                    if (DBConsultantProj.Id != 0)
+                    if (DBConsultantProj.ConsultantId != 0)
                     {
                         DBConsultantProj.ProjStartDate = updateProjStartDate;
                         DBConsultantProj.ProjEndDate = updateProjEndDate;
@@ -243,10 +240,10 @@ namespace BLL.Models
             {
                 using (DAL.DashboardModelContainer DB = new DashboardModelContainer())
                 {
-                    if (this.Id != 0)
+                    if (this.ProjectId != 0)
                     {
-                        DAL.Consultant_Project DBConsultantProj = (from d in DB.Consultant_Project where d.Id == _id select d).FirstOrDefault();
-                        if (DBConsultantProj.Id != 0)
+                        DAL.Consultant_Project DBConsultantProj = (from d in DB.Consultant_Project where d.ConsultantId == _ConsultantId select d).FirstOrDefault();
+                        if (DBConsultantProj.ConsultantId != 0)
                         {
                             DB.Consultant_Project.Remove(DBConsultantProj);
                             DB.SaveChanges();

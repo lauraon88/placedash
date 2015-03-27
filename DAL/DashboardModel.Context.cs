@@ -16,7 +16,7 @@ namespace DAL
     public partial class DashboardModelContainer : DbContext
     {
         public DashboardModelContainer()
-            : base("name=DashboardModelContainer")
+            : base("name=PlacementDashboardEntities")
         {
         }
     
@@ -25,8 +25,8 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<Consultant> Consultants { get; set; }
         public virtual DbSet<Consultant_Project> Consultant_Project { get; set; }
+        public virtual DbSet<Consultant> Consultants { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
     }
 }
